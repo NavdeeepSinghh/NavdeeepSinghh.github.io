@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navdeep Singh — CS Engineer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursor-trail"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">NS<span class="blink">_</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag glitch-tag">Computer Engineering @ Thapar</div>
+      <h1 class="hero-name">
+        <span class="line1">Navdeep</span>
+        <span class="line2">Singh</span>
+      </h1>
+      <p class="hero-desc">
+        Building intelligent systems — from microplastic detectors to disaster-response AI.
+        I turn raw data into real-world impact.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/NavdeeepSinghh" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">// 01 — about</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-heading">Who I Am</h2>
+          <p>
+            I'm a second-year Computer Engineering student at <strong>Thapar Institute of Engineering and Technology</strong>, Patiala — passionate about the intersection of machine learning, computer vision, and real-world problem solving.
+          </p>
+          <p>
+            As <strong>Technical Head at the Institution of Engineers India</strong>, I lead tech events and workshops, bridging the gap between academia and applied engineering.
+          </p>
+          <p>
+            My work spans edge-AI deployment on NVIDIA Jetson boards, multimodal deep learning systems, and decision-making frameworks — always pushing toward systems that are fast, reliable, and impactful.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">4+</span>
+              <span class="stat-label">Major Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2027</span>
+              <span class="stat-label">Graduating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">93%</span>
+              <span class="stat-label">Best Model Acc.</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card-wrap">
+          <div class="about-card">
+            <div class="card-header">
+              <span class="dot green"></span>
+              <span class="dot yellow"></span>
+              <span class="dot red"></span>
+              <span class="card-title">navdeep@thapar:~$</span>
+            </div>
+            <div class="card-body">
+              <p><span class="cmd">cat</span> profile.json</p>
+              <pre class="json-block">{
+  "name": "Navdeep Singh",
+  "role": "CS Engineer / ML Dev",
+  "university": "TIET Patiala",
+  "batch": "2023 – 2027",
+  "location": "Punjab, India",
+  "interests": [
+    "Deep Learning",
+    "Computer Vision",
+    "NLP",
+    "Edge AI"
+  ],
+  "status": "open_to_opportunities"
+}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label">// 02 — projects</div>
+      <h2 class="section-heading">What I've Built</h2>
+      <div class="projects-grid" id="projects-grid">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label">// 03 — skills</div>
+      <h2 class="section-heading">Tech Stack</h2>
+      <div class="skills-wrapper" id="skills-wrapper">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">// 04 — contact</div>
+      <h2 class="section-heading">Let's Connect</h2>
+      <p class="contact-sub">Open to internships, collaborations, and cool projects.</p>
+      <div class="contact-links">
+        <a href="mailto:Nsingh3be23@thapar.edu" class="contact-card">
+          <span class="contact-icon">✉</span>
+          <span class="contact-text">Nsingh3be23@thapar.edu</span>
+          <span class="contact-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/navdeep–singh0" target="_blank" class="contact-card">
+          <span class="contact-icon">in</span>
+          <span class="contact-text">linkedin.com/in/navdeep-singh0</span>
+          <span class="contact-arrow">→</span>
+        </a>
+        <a href="https://github.com/NavdeeepSinghh" target="_blank" class="contact-card">
+          <span class="contact-icon">gh</span>
+          <span class="contact-text">github.com/NavdeeepSinghh</span>
+          <span class="contact-arrow">→</span>
+        </a>
+        <a href="tel:+916284532147" class="contact-card">
+          <span class="contact-icon">☎</span>
+          <span class="contact-text">+91-628-453-2147</span>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">NS<span class="blink">_</span></span>
+      <span class="footer-copy">© 2026 Navdeep Singh. Built with code & ☕</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
