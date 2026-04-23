@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Noise overlay -->
   <div class="noise"></div>
-
-  <!-- Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-trail" id="cursor-trail"></div>
 
@@ -22,6 +19,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -34,7 +32,7 @@
   <section class="hero" id="home">
     <div class="hero-bg-grid"></div>
     <div class="hero-content">
-      <div class="hero-tag glitch-tag">Computer Engineering @ Thapar</div>
+      <div class="hero-tag">B.E. Computer Science @ Thapar University</div>
       <h1 class="hero-name">
         <span class="line1">Navdeep</span>
         <span class="line2">Singh</span>
@@ -43,6 +41,13 @@
         Building intelligent systems — from microplastic detectors to disaster-response AI.
         I turn raw data into real-world impact.
       </p>
+      <div class="hero-focus-chips">
+        <span class="chip">AI / ML</span>
+        <span class="chip">App Development</span>
+        <span class="chip">Full-Stack Dev</span>
+        <span class="chip">Data Science</span>
+        <span class="chip">Cyber Security</span>
+      </div>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="https://github.com/NavdeeepSinghh" target="_blank" class="btn btn-ghost">GitHub ↗</a>
@@ -64,54 +69,83 @@
         <div class="about-text">
           <h2 class="section-heading">Who I Am</h2>
           <p>
-            I'm a second-year Computer Engineering student at <strong>Thapar Institute of Engineering and Technology</strong>, Patiala — passionate about the intersection of machine learning, computer vision, and real-world problem solving.
+            I'm a 3rd-year <strong>Computer Science Engineering student</strong> at <strong>Thapar University</strong>, Patiala —
+            passionate about the intersection of machine learning, computer vision, and real-world problem solving.
           </p>
           <p>
-            As <strong>Technical Head at the Institution of Engineers India</strong>, I lead tech events and workshops, bridging the gap between academia and applied engineering.
+            As <strong>Technical Head at the Institution of Engineers India</strong>, I lead tech events and workshops,
+            bridging the gap between academia and applied engineering. I've also presented research at
+            <strong>ICIPAIMAR 2026</strong> — an international AI conference.
           </p>
           <p>
-            My work spans edge-AI deployment on NVIDIA Jetson boards, multimodal deep learning systems, and decision-making frameworks — always pushing toward systems that are fast, reliable, and impactful.
+            My work spans edge-AI on NVIDIA Jetson, multimodal deep learning, NLP decision frameworks, and full-stack apps —
+            always building things that are fast, reliable, and impactful.
           </p>
+          <div class="ask-me">
+            <span class="ask-label">Ask me about:</span>
+            <div class="ask-chips">
+              <span class="chip chip-sm">Python</span>
+              <span class="chip chip-sm">ML</span>
+              <span class="chip chip-sm">Kotlin</span>
+              <span class="chip chip-sm">C++</span>
+              <span class="chip chip-sm">TypeScript</span>
+              <span class="chip chip-sm">Data Science</span>
+            </div>
+          </div>
           <div class="about-stats">
             <div class="stat">
-              <span class="stat-num">4+</span>
-              <span class="stat-label">Major Projects</span>
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">1</span>
+              <span class="stat-label">Paper Published</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">93%</span>
+              <span class="stat-label">Best Accuracy</span>
             </div>
             <div class="stat">
               <span class="stat-num">2027</span>
               <span class="stat-label">Graduating</span>
             </div>
-            <div class="stat">
-              <span class="stat-num">93%</span>
-              <span class="stat-label">Best Model Acc.</span>
-            </div>
           </div>
         </div>
-        <div class="about-card-wrap">
+        <div class="about-right">
           <div class="about-card">
             <div class="card-header">
-              <span class="dot green"></span>
-              <span class="dot yellow"></span>
               <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
               <span class="card-title">navdeep@thapar:~$</span>
             </div>
             <div class="card-body">
               <p><span class="cmd">cat</span> profile.json</p>
               <pre class="json-block">{
   "name": "Navdeep Singh",
-  "role": "CS Engineer / ML Dev",
-  "university": "TIET Patiala",
-  "batch": "2023 – 2027",
-  "location": "Punjab, India",
-  "interests": [
-    "Deep Learning",
-    "Computer Vision",
-    "NLP",
-    "Edge AI"
+  "username": "NavdeeepSinghh",
+  "degree": "B.E. Computer Science",
+  "college": "Thapar University",
+  "location": "Patiala, Punjab 🇮🇳",
+  "focus": [
+    "AI / Machine Learning",
+    "App Development",
+    "Full-Stack Dev"
   ],
+  "electives": [
+    "Data Science",
+    "Cyber Security"
+  ],
+  "currently": "Building cool stuff 🚀",
   "status": "open_to_opportunities"
 }</pre>
             </div>
+          </div>
+
+          <!-- Team photo -->
+          <div class="team-photo-wrap reveal">
+            <img src="images/team.jpg" alt="Navdeep Singh with project team" class="team-photo" />
+            <div class="photo-caption">Neerakshak project demo — Thapar University</div>
           </div>
         </div>
       </div>
@@ -123,8 +157,21 @@
     <div class="container">
       <div class="section-label">// 02 — projects</div>
       <h2 class="section-heading">What I've Built</h2>
-      <div class="projects-grid" id="projects-grid">
-        <!-- filled by JS -->
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="achievements section" id="achievements">
+    <div class="container">
+      <div class="section-label">// 03 — achievements</div>
+      <h2 class="section-heading">Highlights</h2>
+      <div class="achievements-grid" id="achievements-grid"></div>
+
+      <!-- Certificate -->
+      <div class="cert-wrap reveal">
+        <div class="cert-label">Certificate of Appreciation — ICIPAIMAR 2026</div>
+        <img src="images/certificate.png" alt="Certificate of Appreciation - ICIPAIMAR 2026" class="cert-img" />
       </div>
     </div>
   </section>
@@ -132,18 +179,16 @@
   <!-- SKILLS -->
   <section class="skills section" id="skills">
     <div class="container">
-      <div class="section-label">// 03 — skills</div>
+      <div class="section-label">// 04 — skills</div>
       <h2 class="section-heading">Tech Stack</h2>
-      <div class="skills-wrapper" id="skills-wrapper">
-        <!-- filled by JS -->
-      </div>
+      <div class="skills-wrapper" id="skills-wrapper"></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact section" id="contact">
     <div class="container">
-      <div class="section-label">// 04 — contact</div>
+      <div class="section-label">// 05 — contact</div>
       <h2 class="section-heading">Let's Connect</h2>
       <p class="contact-sub">Open to internships, collaborations, and cool projects.</p>
       <div class="contact-links">
@@ -171,11 +216,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-logo">NS<span class="blink">_</span></span>
-      <span class="footer-copy">© 2026 Navdeep Singh. Built with code & ☕</span>
+      <span class="footer-copy">© 2026 Navdeep Singh · Thapar University · Built with ☕</span>
     </div>
   </footer>
 
