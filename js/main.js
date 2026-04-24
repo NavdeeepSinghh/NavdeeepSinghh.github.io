@@ -25,8 +25,7 @@ function animateTrail() {
 }
 animateTrail();
 
-// Scale cursor on hover over clickable elements
-document.querySelectorAll("a, button, .project-card, .skill-pill, .contact-card").forEach((el) => {
+document.querySelectorAll("a, button, .project-card, .skill-pill, .contact-card, .achievement-card").forEach((el) => {
   el.addEventListener("mouseenter", () => {
     cursor.style.transform = "translate(-50%, -50%) scale(2)";
     trail.style.transform = "translate(-50%, -50%) scale(0.6)";
@@ -51,7 +50,6 @@ hamburger.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-// Close mobile menu when a link is clicked
 nav.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", () => nav.classList.remove("open"));
 });
@@ -59,15 +57,25 @@ nav.querySelectorAll(".nav-links a").forEach((link) => {
 /* ── RENDER PROJECTS ── */
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
-  if (!grid || !window.PROJECTS) return;
+  if (!grid || typeof PROJECTS === "undefined") return;
 
-  grid.innerHTML = PROJECTS.map((p) => `
+  grid.innerHTML = PROJECTS.map((p) => {
+    let badgeHTML = "";
+    if (p.badge === "conference") {
+      badgeHTML = `<div class="metric-badge conference">${p.metric}</div>`;
+    } else if (p.badge === "accuracy" && p.metric) {
+      badgeHTML = `<div class="metric-badge accuracy">${p.metric}</div>`;
+    } else if (p.metric) {
+      badgeHTML = `<div class="metric-badge accuracy">${p.metric}</div>`;
+    }
+
+    return `
     <article class="project-card reveal">
       <div class="project-top">
         <span class="project-date">${p.date}</span>
         <a href="${p.github}" target="_blank" class="project-link">GitHub ↗</a>
       </div>
-      ${p.metric ? `<div class="accuracy-badge">${p.metric}</div>` : ""}
+      ${badgeHTML}
       <h3 class="project-title">${p.title}</h3>
       <p class="project-desc">${p.description}</p>
       <ul class="project-highlights">
@@ -76,14 +84,14 @@ function renderProjects() {
       <div class="project-tags">
         ${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
       </div>
-    </article>
-  `).join("");
+    </article>`;
+  }).join("");
 }
 
 /* ── RENDER SKILLS ── */
 function renderSkills() {
   const wrapper = document.getElementById("skills-wrapper");
-  if (!wrapper || !window.SKILLS) return;
+  if (!wrapper || typeof SKILLS === "undefined") return;
 
   wrapper.innerHTML = SKILLS.map((group) => `
     <div class="skill-group reveal">
@@ -95,7 +103,21 @@ function renderSkills() {
   `).join("");
 }
 
-/* ── INTERSECTION OBSERVER (reveal on scroll) ── */
+/* ── RENDER ACHIEVEMENTS ── */
+function renderAchievements() {
+  const grid = document.getElementById("achievements-grid");
+  if (!grid || typeof ACHIEVEMENTS === "undefined") return;
+
+  grid.innerHTML = ACHIEVEMENTS.map((a) => `
+    <div class="achievement-card reveal">
+      <span class="ach-icon">${a.icon}</span>
+      <div class="ach-title">${a.title}</div>
+      <p class="ach-desc">${a.desc}</p>
+    </div>
+  `).join("");
+}
+
+/* ── INTERSECTION OBSERVER ── */
 function initReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -115,14 +137,13 @@ function initReveal() {
   });
 }
 
-/* ── TERMINAL CARD TYPEWRITER ── */
+/* ── TERMINAL TYPEWRITER ── */
 function typewriterJSON() {
   const jsonEl = document.querySelector(".json-block");
   if (!jsonEl) return;
   const fullText = jsonEl.textContent;
   jsonEl.textContent = "";
   let i = 0;
-  const speed = 18;
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
@@ -131,14 +152,14 @@ function typewriterJSON() {
         jsonEl.textContent += fullText[i];
         i++;
         if (i >= fullText.length) clearInterval(interval);
-      }, speed);
+      }, 16);
     }
   }, { threshold: 0.5 });
 
   observer.observe(jsonEl);
 }
 
-/* ── SMOOTH SCROLL for nav links ── */
+/* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const target = document.querySelector(anchor.getAttribute("href"));
@@ -149,7 +170,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* ── ACTIVE NAV LINK HIGHLIGHT ── */
+/* ── ACTIVE NAV HIGHLIGHT ── */
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -165,26 +186,15 @@ const activeSectionObserver = new IntersectionObserver(
   },
   { threshold: 0.4 }
 );
-
 sections.forEach((s) => activeSectionObserver.observe(s));
 
 /* ── INIT ── */
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderSkills();
-  // Re-observe after dynamic elements are added
+  renderAchievements();
   setTimeout(() => {
     initReveal();
     typewriterJSON();
   }, 50);
-});
-
-/* ── STAGGER PROJECT CARDS ── */
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    const cards = document.querySelectorAll(".project-card");
-    cards.forEach((c, i) => {
-      c.style.transitionDelay = `${i * 0.1}s`;
-    });
-  }, 100);
 });

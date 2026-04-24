@@ -1,5 +1,5 @@
 // ============================================================
-// NAVDEEP SINGH — Portfolio Data (Updated)
+// NAVDEEP SINGH — Portfolio Data
 // ============================================================
 
 const PROJECTS = [
@@ -10,9 +10,9 @@ const PROJECTS = [
       "A research-grade multi-criteria decision framework that mathematically ranks 6 pre-trained NLP models (BERT, GPT-2, T5, RoBERTa, ALBERT, DistilBERT) across 5 distinct tasks — from summarization to conversational AI.",
     highlights: [
       "ALBERT ranked #1 for Summarization (0.5626), Classification (0.8144) & Sentence Similarity (0.7670)",
-      "GPT-2 ranked #1 for Text Generation with a TOPSIS score of 0.6289",
+      "GPT-2 ranked #1 for Text Generation with TOPSIS score of 0.6289",
       "DistilBERT topped Conversational AI task with score 0.7086",
-      "Weighted decision matrices incorporating ROUGE, BLEU, F1, Perplexity & resource metrics",
+      "Weighted decision matrices with ROUGE, BLEU, F1, Perplexity & resource metrics",
       "Sensitivity analysis to study ranking stability across weight perturbations",
     ],
     tags: ["Python", "NumPy", "Pandas", "Matplotlib", "NLP", "TOPSIS", "BERT", "GPT-2"],
@@ -24,13 +24,13 @@ const PROJECTS = [
     title: "Multimodal Disaster Detection System",
     date: "Jan 2026",
     description:
-      "End-to-end multimodal pipeline detecting disasters from social media — fusing NLP and CV signals. Classifies fire, floods, land damage, human damage & infrastructure damage with a two-stage fusion strategy.",
+      "End-to-end multimodal pipeline detecting disasters from social media — fusing NLP and CV signals. Classifies fire, floods, land damage, human damage & infrastructure damage across a two-stage fusion strategy.",
     highlights: [
       "ResNet-50 achieved ~93% accuracy — best among AlexNet, MobileNetV2, EfficientNet, ViT",
       "BiLSTM + GloVe embeddings for disaster text classification at 81.8% accuracy",
       "Two-stage pipeline: image analysis triggered only when text signals a disaster",
       "Late-fusion combining weighted confidence scores from both modalities",
-      "6-class disaster classification across 70/15/15 train-val-test split",
+      "6-class disaster classification with 70/15/15 train-val-test split",
     ],
     tags: ["Python", "PyTorch", "BiLSTM", "ResNet50", "GloVe", "ViT", "EfficientNet", "NLP", "CV"],
     github: "https://github.com/NavdeeepSinghh/ML_Disaster-Prediction-Model",
@@ -75,7 +75,7 @@ const PROJECTS = [
     description:
       "OS/parallel computing experiment multiplying 500 random 5000×5000 matrices against a constant matrix using Python ThreadPoolExecutor — benchmarked across T=1–10 threads on Apple M4 to study parallelism and GIL behavior.",
     highlights: [
-      "Benchmarked on MacBook Air M4 (10 cores: 6 Efficiency + 4 Performance)",
+      "Benchmarked on MacBook Air M4 — 10 cores (6 Efficiency + 4 Performance)",
       "NumPy releases the GIL during np.dot() — making threading genuinely effective",
       "U-shaped curve: optimal at T=4–5 threads; overhead rises beyond core count",
       "Apple Accelerate framework natively accelerated matrix operations",
@@ -92,11 +92,11 @@ const PROJECTS = [
     description:
       "Full-stack audio mashup generator that downloads YouTube videos of any singer, extracts & trims audio clips, merges them into a single mashup, and emails the result as a ZIP — available as both a CLI tool and Flask web app.",
     highlights: [
-      "CLI: python script takes singer name, video count, duration & output filename",
+      "CLI: takes singer name, video count, duration & output filename as arguments",
       "Flask web app with HTML/CSS frontend for user-friendly input & email delivery",
       "yt-dlp for YouTube download; pydub + ffmpeg for audio processing & merging",
       "Output compressed into ZIP and sent via SMTP (Gmail App Password)",
-      "Full input validation and graceful error handling",
+      "Full input validation — videos > 10, duration > 20 seconds enforced",
     ],
     tags: ["Python", "Flask", "yt-dlp", "pydub", "ffmpeg", "SMTP", "HTML/CSS"],
     github: "https://github.com/NavdeeepSinghh/Mashup-maker",
@@ -108,7 +108,7 @@ const PROJECTS = [
 const SKILLS = [
   {
     group: "Languages",
-    items: ["Python", "C", "C++", "SQL (Postgres)", "JavaScript", "TypeScript", "HTML/CSS", "Kotlin", "R"],
+    items: ["Python", "C", "C++", "SQL (Postgres)", "JavaScript", "TypeScript", "Kotlin", "HTML/CSS", "R"],
   },
   {
     group: "ML / AI",
@@ -131,12 +131,12 @@ const SKILLS = [
 const ACHIEVEMENTS = [
   {
     title: "Published @ ICIPAIMAR 2026",
-    desc: "Presented 'Repetition-Aware Evaluation and Decoding Optimization for Abstractive Text Summarization' — International Conference on Integrating Predictive AI Models in Applied Research, Manav Rachna University, March 17–18 2026.",
+    desc: "Presented 'Repetition-Aware Evaluation and Decoding Optimization for Abstractive Text Summarization' at the International Conference on Integrating Predictive AI Models in Applied Research, Manav Rachna University, Faridabad — March 17–18, 2026.",
     icon: "🏆",
   },
   {
     title: "Technical Head — Institution of Engineers India",
-    desc: "Leading tech events, workshops and speaker sessions at Thapar University's IEI student chapter — organizing Orion Tech Annual Event and bridging academia with applied engineering.",
+    desc: "Leading tech events, workshops and speaker sessions at Thapar University's IEI student chapter — organizing the Orion Tech Annual Event and bridging academia with applied engineering.",
     icon: "⚡",
   },
 ];
