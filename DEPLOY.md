@@ -1,87 +1,121 @@
 # 🚀 Navdeep Singh — Portfolio Deployment Guide
 
-## File Structure
+## Before you deploy
+
+**Add your résumé PDF.** Two places link to `resume.pdf` (the hero button and the
+contact section). Save your SDE résumé into the project root with exactly that name:
+
 ```
-portfolio/
+cp ~/Downloads/Navdeep_Singh_Resume_SDE.pdf ./resume.pdf
+```
+
+Without it, those two links 404. Everything else works as-is.
+
+## File structure
+
+```
+NavdeeepSinghh.github.io/
 ├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   ├── data.js
-│   └── main.js
+├── resume.pdf          ← add this
+├── Project.png         ← ICIPAIMAR certificate
+├── PRoject_image.png   ← team photo
+├── css/style.css
+├── js/data.js          ← all content lives here
+├── js/main.js
+├── .gitignore
 └── DEPLOY.md
 ```
 
 ---
 
-## ✅ Option 1: GitHub Pages (FREE — Recommended)
+## Deploy to GitHub Pages (free, recommended)
 
-### Step-by-step:
+Your repo must be named **`NavdeeepSinghh.github.io`** — that exact name is what makes
+GitHub serve it at the root domain.
 
-1. **Create a GitHub account** at github.com (if you don't have one)
+From this folder:
 
-2. **Create a new repository** named exactly:
-   ```
-   navdeepsingh.github.io
-   ```
-   *(Replace `navdeepsingh` with your actual GitHub username — `NavdeeepSinghh`)*
-   So your repo should be: `NavdeeepSinghh.github.io`
+```bash
+git add -A
+git commit -m "Portfolio: experience, journey, education, mobile pass"
+git branch -M main
+git remote add origin https://github.com/NavdeeepSinghh/NavdeeepSinghh.github.io.git
+git push -u origin main
+```
 
-3. **Upload all files**, maintaining the folder structure:
-   - `index.html` at root
-   - `css/style.css`
-   - `js/data.js`
-   - `js/main.js`
+Then on GitHub: **Settings → Pages → Source → Deploy from a branch → `main` / `(root)` → Save.**
 
-4. Go to **Settings → Pages → Source → Deploy from branch → main**
+Live in ~1 minute at:
 
-5. Your site will be live at:
-   ```
-   https://NavdeeepSinghh.github.io
-   ```
+```
+https://navdeeepsinghh.github.io
+```
 
-That's it. Completely free, no server needed.
+Every later `git push` redeploys automatically. Hard-refresh (⌘⇧R) if you don't see
+changes — GitHub Pages caches aggressively.
 
----
+### If the repo already exists on GitHub
 
-## ✅ Option 2: Netlify (FREE — Drag & Drop)
+Skip `remote add` and just:
 
-1. Go to **netlify.com** and sign up (free)
-2. Click **"Add new site" → "Deploy manually"**
-3. **Drag and drop your entire `portfolio` folder** onto the page
-4. Done! You get a free URL like `navdeep-abc123.netlify.app`
-5. You can set a custom subdomain like `navdeepsingh.netlify.app` for free
+```bash
+git remote -v            # check what's already set
+git push -u origin main
+```
 
 ---
 
-## ✅ Option 3: Vercel (FREE)
+## Alternatives
 
-1. Go to **vercel.com** and sign in with GitHub
-2. Click **New Project → Import your GitHub repo**
-3. Vercel auto-detects it's a static site and deploys it
-4. Live at `your-repo.vercel.app`
+**Netlify** — netlify.com → "Add new site" → "Deploy manually" → drag this whole folder in.
+Free URL, plus a free custom subdomain.
 
----
+**Vercel** — vercel.com → sign in with GitHub → New Project → import the repo. Auto-detects
+a static site.
 
-## 🌐 Custom Domain (Optional)
-
-If you want `navdeepsingh.dev` or similar:
-- Buy domain from **Namecheap** (~$10/year for `.dev`)
-- Point it to your Netlify/GitHub Pages URL (free)
+**Custom domain** — buy from Namecheap (~$10/yr for `.dev`), then point it at GitHub Pages
+via Settings → Pages → Custom domain.
 
 ---
 
-## 📝 Updating Your Site
+## Testing locally
 
-To update content (new projects, skills, etc.):
-- **Edit `js/data.js`** — all project and skill data lives there
-- **Edit `index.html`** — for bio/about text changes
-- Push changes to GitHub → auto-deploys instantly
+Open `index.html` directly, or (better, so relative paths behave exactly like production):
+
+```bash
+python3 -m http.server 8000
+# → http://localhost:8000
+```
+
+Check mobile with your browser's device toolbar (⌘⇧M in Chrome) at 375px width.
 
 ---
 
-## 💡 Tips
+## Updating content
 
-- Make sure all 4 files are uploaded with the exact folder structure
-- Test locally by just opening `index.html` in your browser first
-- The site uses Google Fonts — internet connection required for full look
+Almost everything is data-driven — **edit `js/data.js`**, not the HTML:
+
+| Constant | Drives |
+|---|---|
+| `SEMESTER_STATS` | the animated counter band |
+| `EDUCATION` | education cards in About |
+| `EXPERIENCE` | the Experience section (BEL internship) |
+| `RESEARCH` | the ICIPAIMAR paper spotlight |
+| `PROJECTS` | project cards |
+| `CONCEPTS` / `SHIFTS` | the "What Changed My Mind" section |
+| `FIELD_NOTES` | the CNN comparison table |
+| `JOURNEY` / `JOURNEY_CAPTION` | the timeline |
+| `TAKEAWAYS` | the three takeaway cards |
+| `SKILLS` | tech stack pills |
+| `ACHIEVEMENTS` | highlights grid |
+| `NOW_NEXT` / `CLOSING_QUOTE` | the "Where I'm Going" section |
+
+Bio prose, the terminal `profile.json` card and contact links live in `index.html`.
+
+### Adding a project
+
+Append an object to `PROJECTS`. Optional fields:
+
+- `github` / `demo` — URLs; omit or set `null` to hide that button
+- `metric` + `badge` — `"conference"` (gold), `"accuracy"` (green), `"demo"` (orange)
+- `status: "in-progress"` — dashed border and a blinking "Work in progress" badge
